@@ -1,0 +1,30 @@
+def get_mit_word_list() -> list[str]:
+    # src: https://www.mit.edu/~ecprice/wordlist.10000
+    with open("mit_10000.txt") as f:
+        data = f.read().splitlines()
+        return data
+
+
+def gen_filtered_word_list(word_list: list[str]) -> list[str]:
+    new_word_list = []
+    for word in word_list:
+        if len(word) == 5:
+            new_word_list.append(word)
+    return new_word_list
+
+
+# NOTE: Delete some uncommon words from word_list.txt
+def gen_new_file(word_list: list[str]):
+    with open("word_list.txt", "w") as f:
+        for word in word_list:
+            f.write(word + "\n")
+
+
+def main():
+    mit_word_list = get_mit_word_list()
+    word_list = gen_filtered_word_list(mit_word_list)
+    gen_new_file(word_list)
+
+
+if __name__ == "__main__":
+    main()
