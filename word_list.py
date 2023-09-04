@@ -1,8 +1,7 @@
 def get_mit_word_list() -> list[str]:
     # src: https://www.mit.edu/~ecprice/wordlist.10000
     with open("mit_10000.txt") as f:
-        data = f.read().splitlines()
-        return data
+        return [line.strip() for line in f.readlines()]
 
 
 def gen_filtered_word_list(word_list: list[str]) -> list[str]:
