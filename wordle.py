@@ -1,21 +1,10 @@
-import random
-
-
-def get_local_dictionary() -> list[str]:
-    with open("./dictionary/word_list.txt", "r") as f:
-        return [line.strip() for line in f.readlines()]
-
-
-get_local_dictionary()
-
-
-def pick_random_word(word_list: list) -> str:
-    return random.choice(word_list)
+import helpers
 
 
 def is_today_finish() -> bool:
+    # TODO: can count the number of lines in today_progress.txt
     today_count = 0
-    with open("today_count.txt", "r") as f:
+    with open("./wordle_stat/today_count.txt", "r") as f:
         today_count = int(f.read())
 
     return today_count >= 6
@@ -47,7 +36,7 @@ def check_win_con(ans: str, user_input: str) -> bool:
 
 
 def check_char(ans: str, user_input: str) -> dict[str, str]:
-    # key: user_input char, value: "correct" | "wrong position" | "not in answer"
+    # NOTE: key: user_input char, value: "correct" | "wrong position" | "not in answer"
     char_dict = {}
 
     for i in range(len(user_input)):
@@ -62,24 +51,10 @@ def check_char(ans: str, user_input: str) -> dict[str, str]:
     return char_dict
 
 
-# TODO: Game Flow
-# 1. Get today's word
-# 2. Start loop:
-# 3. Check if today's game is finished, if yes, exit loop (6 times wrong)
-# 4. Get user input
-# 5. Check if user input is valid
-# 6. Check if user input is correct
-# 7. If not correct, print out the result of the user input, increment the count of tries, and go back to step 3
-# 8. If correct or out of tries, exit loop
-# 9. Display the result of the game (progress, user input, user info)
-# 10. Save today's game result
-
-
-# TODO: Separate the daily logic and the game logic for diff github actions
 def main() -> None:
-    dictionary = get_local_dictionary()
+    dictionary = helpers.get_local_dictionary()
 
-    ans = pick_random_word(dictionary)
+    ans = helpers.pick_random_word(dictionary)
     print(ans)
 
     while True:
@@ -101,6 +76,7 @@ def main() -> None:
 
         char_dict = check_char(ans, user_input)
         print(char_dict)
+        # TODO: Update readme
 
 
 # if __name__ == "__main__":
