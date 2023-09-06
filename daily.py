@@ -6,6 +6,17 @@ def record_today_ans(ans: str) -> None:
         f.write(ans)
 
 
+# TODO: Impl
+def save_last_day_record() -> None:
+    return
+
+
+# TODO: Impl
+def get_wordle_readme_text() -> str:
+    readme_text = f""""""
+    return readme_text
+
+
 # TODO: Save last day record
 # TODO: Update readme
 def main() -> None:
