@@ -36,7 +36,7 @@ def check_win_con(ans: str, user_input: str) -> bool:
 
 
 def check_char(ans: str, user_input: str) -> dict[str, str]:
-    # NOTE: key: user_input char, value: "correct" | "wrong position" | "not in answer"
+    # NOTE: key: user_input char, value: "correct" | "misplaced" | "wrong"
     char_dict = {}
 
     for i in range(len(user_input)):
@@ -44,9 +44,9 @@ def check_char(ans: str, user_input: str) -> dict[str, str]:
         if current_char == user_input[i]:
             char_dict[current_char] = "correct"
         elif current_char in user_input:
-            char_dict[current_char] = "wrong position"
+            char_dict[current_char] = "misplaced"
         else:
-            char_dict[current_char] = "not in answer"
+            char_dict[current_char] = "wrong"
 
     return char_dict
 
