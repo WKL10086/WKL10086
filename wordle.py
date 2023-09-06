@@ -35,17 +35,17 @@ def check_win_con(ans: str, user_input: str) -> bool:
     return ans == user_input
 
 
-def check_char(ans: str, user_input: str) -> dict[str, str]:
+def check_char(ans: str, user_input: str) -> list[tuple[str, str]]:
     # NOTE: key: user_input char, value: "correct" | "misplaced" | "wrong"
-    result = {}
+    result = []
 
     for user_letter, correct_letter in zip(user_input, ans):
         if user_letter == correct_letter:
-            result[user_letter] = "correct"
+            result.append((user_letter, "correct"))
         elif user_letter in ans:
-            result[user_letter] = "misplaced"
+            result.append((user_letter, "misplaced"))
         else:
-            result[user_letter] = "wrong"
+            result.append((user_letter, "wrong"))
 
     return result
 
