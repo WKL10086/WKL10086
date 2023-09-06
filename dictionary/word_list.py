@@ -8,7 +8,7 @@ def gen_filtered_word_list(word_list: list[str]) -> list[str]:
     new_word_list = []
     for word in word_list:
         if len(word) == 5:
-            new_word_list.append(word)
+            new_word_list.append(word.upper())
     return new_word_list
 
 
