@@ -1,6 +1,7 @@
 def get_mit_word_list() -> list[str]:
-    # src: https://www.mit.edu/~ecprice/wordlist.10000
-    with open("mit_10000.txt") as f:
+    # src: https://www.mit.edu/~ecprice/wordlist.10000 for mit_10000.txt
+    # src: https://github.com/dwyl/english-words for words_alpha.txt
+    with open("words_alpha.txt") as f:
         return [line.strip() for line in f.readlines()]
 
 
