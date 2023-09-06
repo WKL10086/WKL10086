@@ -15,7 +15,7 @@ def get_user_input() -> str:
 
 
 def format_input(user_input: str) -> str:
-    return user_input.lower()
+    return user_input.upper()
 
 
 def is_input_valid(user_input: str, dictionary: list[str]) -> tuple[bool, str]:
