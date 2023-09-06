@@ -9,4 +9,5 @@ Game Flow (triggered by user submit issue)
 3. Check if user input is valid
 4. Check if user input is correct
 5. Compute the result of the game (progress, user input, user info)
-6. Update readme
+6. Update stats
+7. Update readme
