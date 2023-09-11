@@ -1,16 +1,5 @@
-### Hi there 👋, my name is Peter Wong
+### WKL1086 - Wordle
 
-#### I am a full stack developer
+This project is inspired by the [Wordle](https://www.nytimes.com/games/wordle/index.html) game. The goal of the game is to guess a five-letter word in six tries.
 
-![I am a full stack developer ](https://cutshort.io/blog/wp-content/uploads/2018/04/bd1e5c2457278a37313c55ce8c887aa3.jpg)
-
-Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
-
-- 🔭 I’m currently working on e-commerce platform
-- 🌱 I’m currently learning Rust
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=WKL10086)](https://github.com/anuraghazra/github-readme-stats)
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=WKL10086&show_icons=true&count_private=true)
-
-![ayaya](https://count.ayaya.beauty/get/@WKL10086?theme=rule34)
+The idea of making the game inside the github profile is inspired by [rossjrw/rossjrw](https://github.com/rossjrw/rossjrw) and [DoubleGremlin181/DoubleGremlin181](https://github.com/DoubleGremlin181/DoubleGremlin181).
