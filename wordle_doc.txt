@@ -1,9 +1,9 @@
-Daily Flow (trigger every day pass 23:59)
+Daily Flow (trigger every day pass 23:59):
 1. Save last day's game result, user info, and progress
 2. Get today's word
 3. Update readme
 
-Game Flow (triggered by user submit issue)
+Game Flow (triggered by user submit issue):
 1. Check if today's game is finished (6 times wrong or has been solved), if yes, update readme and return
 2. Get user input, user info (from env)
 3. Check if user input is valid
@@ -11,3 +11,6 @@ Game Flow (triggered by user submit issue)
 5. Compute the result of the game (progress, user input, user info)
 6. Update stats
 7. Update readme
+
+Potential bug (need report):
+1. Valid word but not in the word list
