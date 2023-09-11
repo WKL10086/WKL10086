@@ -1,0 +1,38 @@
+name: "play"
+# Run this action whenever an issue is opened
+on:
+  issues:
+    types: [opened]
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    # Restrict permissions for the action
+    # All others are disabled by default
+    permissions:
+      contents: write
+      issues: write
+    # Only do anything if the issue says it's a try
+    if: startsWith(github.event.issue.title, 'try-')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Update game
+        run: python wordle.py
+        env:
+          TITLE: ${{ github.event.issue.title }}
+          USER: ${{ github.event.issue.user.login }}
+
+      - name: Commit and push
+        run: |
+          git diff
+          git add .
+          git config --global user.email "github-action-bot@example.com"
+          git config --global user.name "GitHub Action Bot"
+          git commit -m "Updated game" -a
+          git push
