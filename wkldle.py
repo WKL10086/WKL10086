@@ -4,7 +4,7 @@ import helpers
 def is_today_finish() -> bool:
     # TODO: can count the number of lines in today_progress.txt
     today_count = 0
-    with open("./wordle_stat/today_count.txt", "r") as f:
+    with open("./wkldle_stat/today_count.txt", "r") as f:
         today_count = int(f.read())
 
     return today_count >= 6

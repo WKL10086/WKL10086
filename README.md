@@ -1,4 +1,4 @@
-### WKL1086 - Wordle
+### WKL1086 - Wkldle
 
 This project is inspired by the [Wordle](https://www.nytimes.com/games/wordle/index.html) game. The goal of the game is to guess a five-letter word in six tries.
 

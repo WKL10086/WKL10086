@@ -2,7 +2,7 @@ import helpers
 
 
 def record_today_ans(ans: str) -> None:
-    with open("./wordle_stat/today_ans.txt", "w") as f:
+    with open("./wkldle_stat/today_ans.txt", "w") as f:
         f.write(ans)
 
 
@@ -12,7 +12,7 @@ def save_last_day_record() -> None:
 
 
 # TODO: Impl
-def get_wordle_readme_text() -> str:
+def get_wkldle_readme_text() -> str:
     readme_text = f""""""
     return readme_text
 
