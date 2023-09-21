@@ -1,7 +1,7 @@
 # HELP
 # This will output the help for each task
 # thanks to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-.PHONY: help daily
+.PHONY: help daily wkldle
 
 .DEFAULT_GOAL := help
 
@@ -11,3 +11,5 @@ help:
 daily: ## Run daily script
 	python3 daily.py
 
+wkldle: ## Run wkldle script
+	python3 wkldle.py
