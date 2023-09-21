@@ -45,13 +45,24 @@ def get_wkldle_readme_text() -> str:
     return readme_text
 
 
-# TODO: Update readme
+def update_readme(readme_text: str) -> None:
+    with open("./README.md", "w") as f:
+        f.write(readme_text)
+
+    return
+
+
 def main() -> None:
     save_last_day_record()
 
     dictionary = helpers.get_local_dictionary()
     ans = helpers.pick_random_word(dictionary)
     record_new_ans(ans)
+
+    wkldle_readme_text = get_wkldle_readme_text()
+    core_readme_text = helpers.get_core_readme_text()
+    readme_text = wkldle_readme_text + core_readme_text
+    update_readme(readme_text)
 
     return
 
