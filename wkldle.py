@@ -2,9 +2,9 @@ import helpers
 
 
 def is_today_finish() -> bool:
-    # TODO: can count the number of lines in today_progress.txt
+    # TODO: Impl
     today_count = 0
-    with open("./wkldle_stat/today_count.txt", "r") as f:
+    with open("./wkldle_stat/log.json", "r") as f:
         today_count = int(f.read())
 
     return today_count >= 6
@@ -77,6 +77,8 @@ def main() -> None:
         print(char_dict)
         # TODO: Update readme
 
+    return
 
-# if __name__ == "__main__":
-#     main()
+
+if __name__ == "__main__":
+    main()
