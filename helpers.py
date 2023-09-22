@@ -1,4 +1,5 @@
 import random
+from typing import Literal
 
 
 def get_local_dictionary() -> list[str]:
@@ -11,7 +12,8 @@ def pick_random_word(word_list: list) -> str:
 
 
 def get_core_readme_text() -> str:
-    readme_text = f"""### Hi there 👋, my name is Peter Wong
+    readme_text = """\
+### Hi there 👋, my name is Peter Wong
 
 #### I am a full stack developer
 
@@ -31,3 +33,13 @@ Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
 """
 
     return readme_text
+
+
+def state_to_color(state: Literal["", "correct", "misplaced", "wrong"]) -> str:
+    color_dict = {
+        "correct": "green",
+        "misplaced": "yellow",
+        "wrong": "red",
+    }
+
+    return color_dict.get(state, "gray")
