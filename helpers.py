@@ -33,13 +33,3 @@ Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
 """
 
     return readme_text
-
-
-def state_to_color(state: Literal["", "correct", "misplaced", "wrong"]) -> str:
-    color_dict = {
-        "correct": "green",
-        "misplaced": "yellow",
-        "wrong": "red",
-    }
-
-    return color_dict.get(state, "gray")

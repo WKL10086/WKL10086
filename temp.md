@@ -40,21 +40,11 @@
 </style>
 
 <div class="board ">
-<div class="row">
-<div class="item wrong">
-    W
-</div>
-<div class="item">
-    
-</div>
-<div class="item correct">
-    T
-</div>
-<div class="item misplaced">
-    E
-</div>
-<div class="item not-guessed">
-    R
-</div>
-<div>
+    <div class="row">
+        <div class="item wrong">W</div>
+        <div class="item"></div>
+        <div class="item correct">T</div>
+        <div class="item misplaced">E</div>
+        <div class="item not-guessed">R</div>
+    <div>
 </div>

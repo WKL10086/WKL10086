@@ -40,6 +40,12 @@ def save_last_day_record() -> None:
 
 
 # TODO: Impl
+def init_game_state() -> None:
+    with open("./wkldle_stat/today_ans.json", "w") as f:
+        f.write("{}")
+
+
+# TODO: Impl
 def get_wkldle_readme_text() -> str:
     readme_text = f""""""
     return readme_text
