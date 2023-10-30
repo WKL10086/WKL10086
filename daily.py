@@ -39,10 +39,15 @@ def save_last_day_record() -> None:
     return
 
 
-# TODO: Impl
 def init_game_state() -> None:
-    with open("./wkldle_stat/today_ans.json", "w") as f:
-        f.write("{}")
+    with open("./wkldle_stat/game_state.json", "w") as f:
+        game_state = {chr(i): "not-guessed" for i in range(ord("A"), ord("Z") + 1)}
+        json.dump(game_state, f)
+
+
+def init_log() -> None:
+    with open("./wkldle_stat/log.json", "w") as f:
+        json.dump([], f)
 
 
 # TODO: Impl
@@ -59,16 +64,25 @@ def update_readme(readme_text: str) -> None:
 
 
 def main() -> None:
+    # prev_log
     save_last_day_record()
 
+    # today_ans.json
     dictionary = helpers.get_local_dictionary()
     ans = helpers.pick_random_word(dictionary)
     record_new_ans(ans)
 
+    # README.md
     wkldle_readme_text = get_wkldle_readme_text()
     core_readme_text = helpers.get_core_readme_text()
     readme_text = wkldle_readme_text + core_readme_text
     update_readme(readme_text)
+
+    # game_state.json
+    init_game_state()
+
+    # log.json
+    init_log()
 
     return
 
