@@ -33,3 +33,71 @@ Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
 """
 
     return readme_text
+
+
+def get_style_readme_text() -> str:
+    readme_text = """\
+<style>
+    .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+    .board {
+    width: 300px;
+    height: 400px;
+    }
+    .keyboard {
+    width: 600px;
+    height: 360px;
+    }
+    .item {
+    font-family: "nyt-franklin";
+    width: 56px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #d3d6da;
+    background-color: #d3d6da;
+    border: 2px solid #d3d6da;
+    border-radius: 4px;
+    padding: 12px;
+    }
+    .row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    }
+    .keyboard-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    }
+    .wrong {
+    color: white;
+    background-color: red;
+    }
+    .correct {
+    color: white;
+    background-color: #6aaa64;
+    }
+    .misplaced {
+    color: white;
+    background-color: #c9b458;
+    }
+    .not-guessed {
+    color: black;
+    background-color: #d3d6da;
+    }
+</style>
+
+"""
+
+    return readme_text
