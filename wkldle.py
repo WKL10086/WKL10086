@@ -56,26 +56,27 @@ def main() -> None:
     ans = helpers.pick_random_word(dictionary)
     print(ans)
 
-    while True:
-        if is_today_finish():
-            print("Today's game is finished")
-            break
+    if is_today_finish():
+        print("Today's game is finished")
+        return
 
-        user_input = get_user_input()
-        user_input = format_input(user_input)
+    user_input = get_user_input()
+    user_input = format_input(user_input)
 
-        is_valid, error_msg = is_input_valid(user_input, dictionary)
-        if not is_valid:
-            print(error_msg)
-            continue
+    is_valid, error_msg = is_input_valid(user_input, dictionary)
+    if not is_valid:
+        print(error_msg)
+        return
 
-        if check_win_con(ans, user_input):
-            print("You win!")
-            break
+    if check_win_con(ans, user_input):
+        print("You win!")
+        return
 
-        char_dict = check_char(ans, user_input)
-        print(char_dict)
-        # TODO: Update readme
+    # (char, correct | misplaced | wrong)[]
+    char_dict = check_char(ans, user_input)
+    # print(char_dict)
+    # TODO: Update game state
+    # TODO: Update readme
 
     return
 
