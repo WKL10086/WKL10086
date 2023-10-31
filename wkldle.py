@@ -1,4 +1,6 @@
-import helpers
+import os
+
+import dict
 
 
 def is_today_finish() -> bool:
@@ -10,8 +12,12 @@ def is_today_finish() -> bool:
     return today_count >= 6
 
 
-def get_user_input() -> str:
-    return input("Enter your guess: ")
+def get_env_var() -> tuple[str, str]:
+    title = os.environ["TITLE"]
+    # TODO: parse title, check start with "wkldle-"
+
+    user_name = os.environ["USER"]
+    return "PETER", user_name
 
 
 def format_input(user_input: str) -> str:
@@ -51,16 +57,17 @@ def check_char(ans: str, user_input: str) -> list[tuple[str, str]]:
 
 
 def main() -> None:
-    dictionary = helpers.get_local_dictionary()
+    dictionary = dict.get_local_dictionary()
 
-    ans = helpers.pick_random_word(dictionary)
-    print(ans)
+    ans = dict.pick_random_word(dictionary)
+    # print(ans)
 
     if is_today_finish():
+        # TODO: save in readme
         print("Today's game is finished")
         return
 
-    user_input = get_user_input()
+    (user_input, user_name) = get_env_var()
     user_input = format_input(user_input)
 
     is_valid, error_msg = is_input_valid(user_input, dictionary)

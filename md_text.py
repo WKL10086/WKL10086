@@ -1,63 +1,96 @@
-import datetime
-import json
+def get_core_readme_text() -> str:
+    readme_text = """\
+### Hi there 👋, my name is Peter Wong
 
-import dict
-import md_text
+#### I am a full stack developer
+
+![I am a full stack developer ](https://cutshort.io/blog/wp-content/uploads/2018/04/bd1e5c2457278a37313c55ce8c887aa3.jpg)
+
+Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
+
+- 🔭 I’m currently working on e-commerce platform
+- 🌱 I’m currently learning Rust
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=WKL10086)](https://github.com/anuraghazra/github-readme-stats)
+
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=WKL10086&show_icons=true&count_private=true)
+
+![ayaya](https://count.ayaya.beauty/get/@WKL10086?theme=rule34)
+
+"""
+
+    return readme_text
 
 
-def record_new_ans(ans: str) -> None:
-    content = {
-        "ans": ans,
+def get_style_readme_text() -> str:
+    readme_text = """\
+<style>
+    .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     }
-    json_content = json.dumps(content, indent=2)
+    .board {
+    width: 300px;
+    height: 400px;
+    }
+    .keyboard {
+    width: 600px;
+    height: 360px;
+    }
+    .item {
+    font-family: "nyt-franklin";
+    width: 56px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #d3d6da;
+    background-color: #d3d6da;
+    border: 2px solid #d3d6da;
+    border-radius: 4px;
+    padding: 12px;
+    }
+    .row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    }
+    .keyboard-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    }
+    .wrong {
+    color: white;
+    background-color: red;
+    }
+    .correct {
+    color: white;
+    background-color: #6aaa64;
+    }
+    .misplaced {
+    color: white;
+    background-color: #c9b458;
+    }
+    .not-guessed {
+    color: black;
+    background-color: #d3d6da;
+    }
+</style>
 
-    with open("./wkldle_stat/today_ans.json", "w") as f:
-        f.write(json_content)
+"""
 
-    return
-
-
-def save_last_day_record() -> None:
-    today_date = datetime.date.today().strftime("%Y-%m-%d")
-
-    today_ans = {}
-    with open("./wkldle_stat/today_ans.json", "r") as f:
-        today_ans = json.load(f)
-
-    today_log = []
-    with open("./wkldle_stat/log.json", "r") as f:
-        today_log = json.load(f)
-
-    today_log.insert(
-        0,
-        today_ans,
-    )
-    json_log = json.dumps(today_log, indent=2)
-
-    with open(f"./wkldle_stat/prev_log/log.{today_date}.json", "w") as f:
-        f.write(json_log)
-
-    return
+    return readme_text
 
 
-def init_game_state() -> None:
-    with open("./wkldle_stat/game_state.json", "w") as f:
-        game_state = {chr(i): "not-guessed" for i in range(ord("A"), ord("Z") + 1)}
-        json.dump(game_state, f)
-
-    return
-
-
-def init_log() -> None:
-    with open("./wkldle_stat/log.json", "w") as f:
-        json.dump([], f)
-
-    return
-
-
-def get_wkldle_readme_text() -> str:
-    style_text = md_text.get_style_readme_text()
-
+def get_init_readme_text() -> str:
     readme_text = """\
 <div class="wrapper">
   <div class="board">
@@ -137,39 +170,4 @@ def get_wkldle_readme_text() -> str:
 
 """
 
-    return style_text + readme_text
-
-
-def update_readme(readme_text: str) -> None:
-    with open("./README.md", "w") as f:
-        f.write(readme_text)
-
-    return
-
-
-def main() -> None:
-    # prev_log
-    save_last_day_record()
-
-    # today_ans.json
-    dictionary = dict.get_local_dictionary()
-    ans = dict.pick_random_word(dictionary)
-    record_new_ans(ans)
-
-    # README.md
-    wkldle_readme_text = get_wkldle_readme_text()
-    core_readme_text = md_text.get_core_readme_text()
-    readme_text = wkldle_readme_text + core_readme_text
-    update_readme(readme_text)
-
-    # game_state.json
-    init_game_state()
-
-    # log.json
-    init_log()
-
-    return
-
-
-if __name__ == "__main__":
-    main()
+    return readme_text
