@@ -1,4 +1,6 @@
+import json
 import os
+from typing import Literal
 
 import dict
 
@@ -54,6 +56,19 @@ def check_char(ans: str, user_input: str) -> list[tuple[str, str]]:
             result.append((user_letter, "wrong"))
 
     return result
+
+
+def update_total_count(key: Literal["total-guessed", "completed"]) -> None:
+    total_count = {}
+    with open("./wkldle_stat/total.json", "r") as f:
+        total_count = json.load(f)
+
+    total_count[key] += 1
+
+    with open("./wkldle_stat/total.json", "w") as f:
+        json.dump(total_count, f)
+
+    return
 
 
 def main() -> None:

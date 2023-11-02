@@ -12,7 +12,7 @@ jobs:
   play:
     runs-on: ubuntu-latest
 
-    # Only do anything if the issue title start with 'wkldle-'
+    # Only do anything if the issue title start with "wkldle-"
     if: startsWith(github.event.issue.title, 'wkldle-')
     steps:
       - name: Checkout
