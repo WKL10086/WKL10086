@@ -147,6 +147,9 @@ def update_readme(readme_text: str) -> None:
     return
 
 
+# TODO: add total count for "Total guessed", "Completed", "Total players" and use with shields.io
+
+
 def main() -> None:
     # prev_log
     save_last_day_record()
