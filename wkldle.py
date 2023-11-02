@@ -14,7 +14,7 @@ def is_today_finish() -> bool:
 
 def get_env_var() -> tuple[str, str]:
     title = os.environ["TITLE"]
-    # TODO: parse title, check start with "wkldle-"
+    # TODO: parse title, remove "wkldle-"
 
     user_name = os.environ["USER"]
     return "PETER", user_name
