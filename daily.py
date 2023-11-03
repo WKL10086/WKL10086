@@ -158,8 +158,8 @@ def main() -> None:
 
     # README.md
     wkldle_readme_text = get_wkldle_readme_text()
-    core_readme_text = md_text.get_core_readme_text()
-    readme_text = wkldle_readme_text + core_readme_text
+    self_intro = md_text.get_self_intro_readme_text()
+    readme_text = wkldle_readme_text + self_intro
     update_readme(readme_text)
 
     # game_state.json
