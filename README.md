@@ -13,4 +13,4 @@ Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
 
 ![GitHub stats](https://github-readme-stats.vercel.app/api?username=WKL10086&show_icons=true&count_private=true)
 
-![ayaya](https://count.ayaya.beauty/get/@WKL10086?theme=rule34)
+![ayaya](https://count.getloli.com/get/@WKL10086?theme=rule34)
