@@ -27,17 +27,17 @@ def write_json(filename: str, data: dict | list):
         json.dump(data, f, indent=2)
 
 
-def write_ans(data: dict):
+def write_ans(data: dict[str, str]):
     write_json("ans", data)
 
 
-def write_game_state(data: dict):
+def write_game_state(data: dict[str, str]):
     write_json("game_state", data)
 
 
-def write_log(data: list):
+def write_log(data: list[dict]):
     write_json("log", data)
 
 
-def write_total_count(data: dict):
+def write_total_count(data: dict[str, int]):
     write_json("total_count", data)

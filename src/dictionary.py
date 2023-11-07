@@ -6,5 +6,5 @@ def get_local_dictionary() -> list[str]:
         return [line.strip() for line in f.readlines()]
 
 
-def pick_random_word(word_list: list) -> str:
+def pick_random_word(word_list: list[str]) -> str:
     return random.choice(word_list)

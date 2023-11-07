@@ -2,7 +2,7 @@ import json
 import os
 from typing import Literal
 
-import dict
+import dictionary
 
 
 def is_today_finish() -> bool:
@@ -72,9 +72,8 @@ def update_total_count(key: Literal["total-guessed", "completed"]) -> None:
 
 
 def main() -> None:
-    dictionary = dict.get_local_dictionary()
-
-    ans = dict.pick_random_word(dictionary)
+    word_list = dictionary.get_local_dictionary()
+    ans = dictionary.pick_random_word(word_list)
     # print(ans)
 
     if is_today_finish():
@@ -85,7 +84,7 @@ def main() -> None:
     (user_input, user_name) = get_env_var()
     user_input = format_input(user_input)
 
-    is_valid, error_msg = is_input_valid(user_input, dictionary)
+    is_valid, error_msg = is_input_valid(user_input, word_list)
     if not is_valid:
         print(error_msg)
         return

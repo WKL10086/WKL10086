@@ -1,7 +1,7 @@
 import datetime
 import json
 
-import dict
+import dictionary
 import md_text
 
 
@@ -152,8 +152,8 @@ def main() -> None:
     save_last_day_record()
 
     # today_ans.json
-    dictionary = dict.get_local_dictionary()
-    ans = dict.pick_random_word(dictionary)
+    word_list = dictionary.get_local_dictionary()
+    ans = dictionary.pick_random_word(word_list)
     record_new_ans(ans)
 
     # README.md
