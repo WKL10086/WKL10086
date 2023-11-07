@@ -1,9 +1,18 @@
 [
   {
-    "username": "test",
+    "username": "testuser",
     "issue": -1,
     "time": "",
     "word": "GUESS",
+    "valid": true,
+    "win": false
+  },
+  {
+    "username": "testuser",
+    "issue": -1,
+    "time": "",
+    "word": "COLOUR",
+    "valid": false,
     "win": false
   }
 ]
