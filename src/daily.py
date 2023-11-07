@@ -1,8 +1,7 @@
 import datetime
 import json
 
-import dictionary
-import md_text
+import readme
 
 
 def record_new_ans(ans: str) -> None:
@@ -56,7 +55,7 @@ def init_log() -> None:
 
 
 def get_wkldle_readme_text() -> str:
-    style_text = md_text.get_style_readme_text()
+    style_text = readme.get_style_readme_text()
 
     readme_text = """\
 <div class="wrapper">
@@ -148,25 +147,25 @@ def update_readme(readme_text: str) -> None:
 
 
 def main() -> None:
-    # prev_log
-    save_last_day_record()
+    # # prev_log
+    # save_last_day_record()
 
-    # today_ans.json
-    word_list = dictionary.get_local_dictionary()
-    ans = dictionary.pick_random_word(word_list)
-    record_new_ans(ans)
+    # # today_ans.json
+    # word_list = dictionary.get_local_dictionary()
+    # ans = dictionary.pick_random_word(word_list)
+    # record_new_ans(ans)
 
-    # README.md
-    wkldle_readme_text = get_wkldle_readme_text()
-    self_intro = md_text.get_self_intro_readme_text()
-    readme_text = wkldle_readme_text + self_intro
-    update_readme(readme_text)
+    # # README.md
+    # wkldle_readme_text = get_wkldle_readme_text()
+    # self_intro = md_text.get_self_intro_readme_text()
+    # readme_text = wkldle_readme_text + self_intro
+    # update_readme(readme_text)
 
-    # game_state.json
-    init_game_state()
+    # # game_state.json
+    # init_game_state()
 
-    # log.json
-    init_log()
+    # # log.json
+    # init_log()
 
     return
 
