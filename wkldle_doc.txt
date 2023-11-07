@@ -1,4 +1,4 @@
-Daily Flow (trigger every day pass 23:59):
+Daily Flow (trigger every day pass 23:59 or user manually trigger): 
 1. Save last day's game result, user info, and progress
 2. Get today's word
 3. Update readme
