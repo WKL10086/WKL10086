@@ -2,7 +2,7 @@ import json
 
 
 def load_json(filename: str):
-    with open(f"./wkldle_stat/{filename}.json", "r") as f:
+    with open(f"../wkldle_stat/{filename}.json", "r") as f:
         return json.load(f)
 
 
@@ -23,7 +23,7 @@ def load_total_count():
 
 
 def write_json(filename: str, data: dict | list):
-    with open(f"./wkldle_stat/{filename}.json", "w") as f:
+    with open(f"../wkldle_stat/{filename}.json", "w") as f:
         json.dump(data, f, indent=2)
 
 
