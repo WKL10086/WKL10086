@@ -1,12 +1,23 @@
 import json
+from typing import Literal, overload
 
 
-def load_json(filename: str):
+@overload
+def load_json(filename: Literal["ans", "game_state", "total_count"]) -> dict:
+    ...
+
+
+@overload
+def load_json(filename: Literal["log"]) -> list:
+    ...
+
+
+def load_json(filename: str) -> dict | list:
     with open(f"../wkldle_stat/{filename}.json", "r") as f:
         return json.load(f)
 
 
-def load_ans():
+def load_ans() -> dict:
     return load_json("ans")
 
 
@@ -22,7 +33,9 @@ def load_total_count():
     return load_json("total_count")
 
 
-def write_json(filename: str, data: dict | list):
+def write_json(
+    filename: Literal["ans", "game_state", "log", "total_count"], data: dict | list
+):
     with open(f"../wkldle_stat/{filename}.json", "w") as f:
         json.dump(data, f, indent=2)
 
