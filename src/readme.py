@@ -1,3 +1,13 @@
+import wkldle_stat
+
+
+def update_readme(readme_text: str) -> None:
+    with open("./README.md", "w") as f:
+        f.write(readme_text)
+
+    return
+
+
 def get_self_intro_readme_text() -> str:
     readme_text = """\
 ### Hi there 👋, my name is Peter Wong

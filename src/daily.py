@@ -4,18 +4,6 @@ import json
 import readme
 
 
-def record_new_ans(ans: str) -> None:
-    content = {
-        "ans": ans,
-    }
-    json_content = json.dumps(content, indent=2)
-
-    with open("./wkldle_stat/today_ans.json", "w") as f:
-        f.write(json_content)
-
-    return
-
-
 def save_last_day_record() -> None:
     today_date = datetime.date.today().strftime("%Y-%m-%d")
 
@@ -35,21 +23,6 @@ def save_last_day_record() -> None:
 
     with open(f"./wkldle_stat/prev_log/log.{today_date}.json", "w") as f:
         f.write(json_log)
-
-    return
-
-
-def init_game_state() -> None:
-    with open("./wkldle_stat/game_state.json", "w") as f:
-        game_state = {chr(i): "not-guessed" for i in range(ord("A"), ord("Z") + 1)}
-        json.dump(game_state, f)
-
-    return
-
-
-def init_log() -> None:
-    with open("./wkldle_stat/log.json", "w") as f:
-        json.dump([], f)
 
     return
 
@@ -139,13 +112,6 @@ def get_wkldle_readme_text() -> str:
     return style_text + readme_text
 
 
-def update_readme(readme_text: str) -> None:
-    with open("./README.md", "w") as f:
-        f.write(readme_text)
-
-    return
-
-
 def main() -> None:
     # # prev_log
     # save_last_day_record()
@@ -153,7 +119,7 @@ def main() -> None:
     # # today_ans.json
     # word_list = dictionary.get_local_dictionary()
     # ans = dictionary.pick_random_word(word_list)
-    # record_new_ans(ans)
+    # save_new_ans(ans)
 
     # # README.md
     # wkldle_readme_text = get_wkldle_readme_text()
