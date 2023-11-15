@@ -1,6 +1,3 @@
-import wkldle_stat
-
-
 def update_readme(readme_text: str) -> None:
     with open("./README.md", "w") as f:
         f.write(readme_text)
@@ -8,8 +5,8 @@ def update_readme(readme_text: str) -> None:
     return
 
 
-def get_self_intro_readme_text() -> str:
-    readme_text = """\
+def get_self_intro() -> str:
+    self_intro = """\
 ### Hi there 👋, my name is Peter Wong
 
 #### I am a full stack developer
@@ -29,11 +26,11 @@ Skills: React / TS / CSS / Python / Golang / C / C++ / SQL / Java / Rust
 
 """
 
-    return readme_text
+    return self_intro
 
 
-def get_style_readme_text() -> str:
-    readme_text = """\
+def get_wkldle_style() -> str:
+    style_text = """\
 <style>
     .wrapper {
     display: flex;
@@ -97,11 +94,11 @@ def get_style_readme_text() -> str:
 
 """
 
-    return readme_text
+    return style_text
 
 
-def get_init_readme_text() -> str:
-    readme_text = """\
+def get_init_wkldle_text() -> str:
+    init_wkldle_text = """\
 <div class="wrapper">
   <div class="board">
     <div class="row">
@@ -180,4 +177,4 @@ def get_init_readme_text() -> str:
 
 """
 
-    return readme_text
+    return init_wkldle_text

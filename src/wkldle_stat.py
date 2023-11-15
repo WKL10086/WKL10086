@@ -1,3 +1,4 @@
+import datetime
 import json
 from typing import Literal, overload
 
@@ -40,18 +41,35 @@ def write_json(
     with open(f"../wkldle_stat/{filename}.json", "w") as f:
         json.dump(data, f, indent=2)
 
+    return
+
 
 def write_ans(data: dict[str, str]) -> None:
     write_json("ans", data)
+
+    return
 
 
 def write_game_state(data: dict[str, str]) -> None:
     write_json("game_state", data)
 
+    return
+
 
 def write_log(data: list[dict]) -> None:
     write_json("log", data)
 
+    return
+
 
 def write_total_count(data: dict[str, int]) -> None:
     write_json("total_count", data)
+
+    return
+
+
+def write_prev_log(data: list[dict], current_time: str) -> None:
+    with open(f"../wkldle_stat/prev_log/{current_time}.json", "w") as f:
+        json.dump(data, f, indent=2)
+
+    return

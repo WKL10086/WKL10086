@@ -4,112 +4,12 @@ import json
 import readme
 
 
-def save_last_day_record() -> None:
-    today_date = datetime.date.today().strftime("%Y-%m-%d")
-
-    today_ans = {}
-    with open("./wkldle_stat/today_ans.json", "r") as f:
-        today_ans = json.load(f)
-
-    today_log = []
-    with open("./wkldle_stat/log.json", "r") as f:
-        today_log = json.load(f)
-
-    today_log.insert(
-        0,
-        today_ans,
-    )
-    json_log = json.dumps(today_log, indent=2)
-
-    with open(f"./wkldle_stat/prev_log/log.{today_date}.json", "w") as f:
-        f.write(json_log)
-
-    return
-
-
 def get_wkldle_readme_text() -> str:
-    style_text = readme.get_style_readme_text()
+    style_text = readme.get_wkldle_style()
 
-    readme_text = """\
-<div class="wrapper">
-  <div class="board">
-    <div class="row">
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-      <div class="item">!</div>
-    </div>
-  </div>
+    wdkdle_text = readme.get_init_wkldle_text()
 
-  <br />
-
-  <div class="keyboard">
-    <div class="keyboard-row">
-      <div class="item not-guessed">Q</div>
-      <div class="item not-guessed">W</div>
-      <div class="item not-guessed">E</div>
-      <div class="item not-guessed">R</div>
-      <div class="item not-guessed">T</div>
-      <div class="item not-guessed">Y</div>
-      <div class="item not-guessed">U</div>
-      <div class="item not-guessed">I</div>
-      <div class="item not-guessed">O</div>
-      <div class="item not-guessed">P</div>
-    </div>
-    <br />
-    <div class="keyboard-row">
-      <div class="item not-guessed">A</div>
-      <div class="item not-guessed">S</div>
-      <div class="item not-guessed">D</div>
-      <div class="item not-guessed">F</div>
-      <div class="item not-guessed">G</div>
-      <div class="item not-guessed">H</div>
-      <div class="item not-guessed">J</div>
-      <div class="item not-guessed">K</div>
-      <div class="item not-guessed">L</div>
-    </div>
-    <br />
-    <div class="keyboard-row">
-      <div class="item not-guessed">Z</div>
-      <div class="item not-guessed">X</div>
-      <div class="item not-guessed">C</div>
-      <div class="item not-guessed">V</div>
-      <div class="item not-guessed">B</div>
-      <div class="item not-guessed">N</div>
-      <div class="item not-guessed">M</div>
-    </div>
-  </div>
-</div>
-
-"""
-
-    return style_text + readme_text
+    return style_text + wdkdle_text
 
 
 def main() -> None:
