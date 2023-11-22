@@ -1,5 +1,6 @@
+import github
 import json
-import os
+import utils
 from typing import Literal
 
 import dictionary
@@ -12,14 +13,6 @@ def is_today_finish() -> bool:
         today_count = int(f.read())
 
     return today_count >= 6
-
-
-def get_env_var() -> tuple[str, str]:
-    title = os.environ["TITLE"]
-    # TODO: parse title, remove "wkldle-"
-
-    user_name = os.environ["USER"]
-    return "PETER", user_name
 
 
 def format_input(user_input: str) -> str:
@@ -71,18 +64,16 @@ def update_total_count(key: Literal["total-guessed", "completed"]) -> None:
     return
 
 
-def main() -> None:
+def main_game_flow(context, repo) -> None:
     word_list = dictionary.get_local_dictionary()
     ans = dictionary.pick_random_word(word_list)
-    # print(ans)
 
     if is_today_finish():
         # TODO: save in readme
         print("Today's game is finished")
         return
 
-    (user_input, user_name) = get_env_var()
-    user_input = format_input(user_input)
+    user_input = format_input(context.user_input)
 
     is_valid, error_msg = is_input_valid(user_input, word_list)
     if not is_valid:
@@ -103,4 +94,16 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    context = utils.get_env_var()
+
+    auth = github.Auth.Token(context.access_token)
+    g = github.Github(auth=auth)
+    repo = g.get_repo("WKL10086")
+
+    if context.mode == "MAIN":
+        main_game_flow(context, repo)
+    elif context.mode == "DAILY":
+        # TODO: Impl
+        pass
+
+    g.close()

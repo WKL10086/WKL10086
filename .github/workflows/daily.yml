@@ -27,7 +27,10 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Daily init
-        run: python daily.py
+        run: python wkldle.py
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODE: "DAILY"
 
       - name: Commit and push
         run: |

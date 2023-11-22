@@ -32,7 +32,9 @@ jobs:
         run: python wkldle.py
         env:
           TITLE: ${{ github.event.issue.title }}
-          USER: ${{ github.event.issue.user.login }}
+          USER_NAME: ${{ github.event.issue.user.login }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODE: "MAIN"
 
       - name: Commit and push
         run: |
