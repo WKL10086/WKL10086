@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 
 export const addLabel = async (octokit: Octokit, issueNumber: number) => {
-  await octokit.rest.issues.addLabels({
+  await octokit.issues.addLabels({
     owner: "WKL10086",
     repo: "WKL10086",
     issue_number: issueNumber,
@@ -14,13 +14,13 @@ export const closeIssueWithComment = async (
   issueNumber: number,
   comment: string
 ) => {
-  await octokit.rest.issues.createComment({
+  await octokit.issues.createComment({
     owner: "WKL10086",
     repo: "WKL10086",
     issue_number: issueNumber,
     body: comment,
   });
-  await octokit.rest.issues.update({
+  await octokit.issues.update({
     owner: "WKL10086",
     repo: "WKL10086",
     issue_number: issueNumber,

@@ -1,10 +1,11 @@
 import { Octokit } from "@octokit/rest";
 
-export const getDictionary = async (octokit: Octokit) => {
-  const { data: dictionary } = await octokit.rest.repos.getContent({
+export const getDictionary = async (octokit: Octokit): Promise<string[]> => {
+  const { data: dictionary } = await octokit.repos.getContent({
     owner: "WKL10086",
     repo: "WKL10086",
     path: "dictionary/word_list.txt",
+    ref: "wkldle",
     mediaType: {
       format: "raw",
     },
@@ -14,11 +15,11 @@ export const getDictionary = async (octokit: Octokit) => {
     throw new Error("FILE_IS_DIR");
   }
 
-  if ("content" in dictionary) {
-    const content = Buffer.from(dictionary.content, "base64").toString();
-
-    return content.split("\n");
+  if (!("content" in dictionary)) {
+    return [];
   }
 
-  return [];
+  const content = Buffer.from(dictionary.content, "base64").toString();
+
+  return content.split("\n");
 };

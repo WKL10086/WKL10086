@@ -1,9 +1,19 @@
 import { Octokit } from "@octokit/rest";
-import { ENV } from "./utils";
+import { ENV, getEnv } from "./utils";
 
-const _initOctokit = (env: ENV) => {
+export const initOctokit = (env: ENV) => {
   const octokit = new Octokit({
     auth: env.accessToken,
   });
   return octokit;
+};
+
+const _main = async () => {
+  const env = getEnv();
+  const octokit = initOctokit(env);
+
+  const {
+    data: { login },
+  } = await octokit.users.getAuthenticated();
+  console.log(`Hello, ${login}!`);
 };
