@@ -2,6 +2,9 @@
 __pycache__
 venv
 node_modules
-test.py
+test.*
 dist
 .DS_Store
+.env
+temp.*
+*.js
