@@ -23,3 +23,9 @@ export const getDictionary = async (octokit: Octokit): Promise<string[]> => {
 
   return content.split("\n");
 };
+
+// TODO: use a better random number generator
+export const pickRandomWord = (dictionary: string[]): string => {
+  const randomIndex = Math.floor(Math.random() * dictionary.length);
+  return dictionary[randomIndex];
+};
