@@ -4,7 +4,6 @@
     "outDir": "./dist/",
     "strict": true,
     "module": "esnext",
-    "importHelpers": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
