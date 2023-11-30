@@ -8,16 +8,27 @@ jobs:
   play:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      issues: write
+
     # Only do anything if the issue title start with "wkldle-"
     if: startsWith(github.event.issue.title, 'wkldle-')
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
+        with:
+          ref: compiled
 
-      # - name: Update game
-      #   run: python wkldle.py
-      #   env:
-      #     TITLE: ${{ github.event.issue.title }}
-      #     USER_NAME: ${{ github.event.issue.user.login }}
-      #     TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     MODE: "MAIN"
+      - name: Run script
+        uses: actions/github-script@v2.0.0
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_CREATOR: ${{ github.event.issue.user.login }}
+        with:
+          script: |
+            const path = require('path')
+            const scriptPath = path.resolve('./bundle.js')
+            const wkldle = require(scriptPath)
+            console.log(scriptPath, wkldle)
+            console.log(await wkldle.default(github, context, core))
