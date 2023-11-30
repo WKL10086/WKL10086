@@ -8,10 +8,10 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
     library: {
-      // name: "wkldle-lib",
+      name: "wkldle",
       type: "umd",
     },
-    // globalObject: "this",
+    globalObject: "this",
   },
   devtool: "source-map",
   module: {
