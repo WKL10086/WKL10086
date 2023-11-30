@@ -8,7 +8,7 @@ export const initOctokit = (env: ENV) => {
   return octokit;
 };
 
-const _main = async () => {
+export default async function main() {
   const env = getEnv();
   const octokit = initOctokit(env);
 
@@ -16,12 +16,4 @@ const _main = async () => {
     data: { login },
   } = await octokit.users.getAuthenticated();
   console.log(`Hello, ${login}!`);
-};
-
-export default function testDefault(): void {
-  console.log("testWebpack console.log");
-}
-
-export function testWebpack(): void {
-  console.log("testWebpack console.log");
 }
