@@ -17,3 +17,11 @@ const _main = async () => {
   } = await octokit.users.getAuthenticated();
   console.log(`Hello, ${login}!`);
 };
+
+export default function testDefault(): void {
+  console.log("testWebpack console.log");
+}
+
+export function testWebpack(): void {
+  console.log("testWebpack console.log");
+}
