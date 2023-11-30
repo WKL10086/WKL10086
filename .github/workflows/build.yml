@@ -1,19 +1,25 @@
 name: build
+
 on:
   push:
     branches: [wkldle]
   pull_request:
     branches: [wkldle]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Install
         run: npm install
+
       - name: Build
         run: npm run build
+
       - name: Deploy
         if: github.ref == 'refs/heads/wkldle'
         uses: JamesIves/github-pages-deploy-action@releases/v3
