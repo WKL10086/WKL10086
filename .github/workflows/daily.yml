@@ -16,8 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Daily init
-        run: python wkldle.py
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MODE: "DAILY"
+      # - name: Daily init
+      #   run: python wkldle.py
+      #   env:
+      #     TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     MODE: "DAILY"
