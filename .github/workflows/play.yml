@@ -13,7 +13,7 @@ jobs:
       issues: write
 
     # Only do anything if the issue title start with "wkldle-"
-    if: startsWith(github.event.issue.title, 'wkldle-')
+    # if: startsWith(github.event.issue.title, 'wkldle-')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
