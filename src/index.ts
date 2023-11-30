@@ -26,6 +26,7 @@ export default async function main(
 
   console.log("context", context);
   console.log("core", core);
+  console.log("_env", _env);
 
   const {
     data: { login },
