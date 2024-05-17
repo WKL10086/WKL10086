@@ -1,1 +1,9 @@
-.vscode/
+.vscode
+__pycache__
+venv
+node_modules
+test.*
+dist
+.DS_Store
+.env
+temp.*
