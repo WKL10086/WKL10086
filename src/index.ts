@@ -1,35 +1,33 @@
-import { default as _core } from "@actions/core";
-import { Context } from "@actions/github/lib/context";
-import { Octokit } from "@octokit/rest";
-import { getEnv } from "./utils";
+import "dotenv/config";
 
-export async function dailyInit(
-  octokit: Octokit,
-  context: Context,
-  core: typeof _core
-) {
-  console.log("context", context);
-  console.log("core", core);
+import * as core from "@actions/core";
+import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
+import { Octokit } from "octokit";
 
-  const {
-    data: { login },
-  } = await octokit.users.getAuthenticated();
-  console.log(`Hello, ${login}!, daily init`);
-}
+const MyOctokit = Octokit.plugin(createOrUpdateTextFile).defaults({
+  userAgent: "WKL10086-README-Action",
+});
 
-export default async function main(
-  octokit: Octokit,
-  context: Context,
-  core: typeof _core
-) {
-  const _env = getEnv();
+const octokit = new MyOctokit({
+  auth: process.env.GITHUB_TOKEN,
+});
 
-  console.log("context", context);
-  console.log("core", core);
-  console.log("_env", _env);
+const main = async () => {
+  const getReadme = await octokit
+    .request("GET /repos/{owner}/{repo}/contents/{path}", {
+      owner: "WKL10086",
+      repo: "WKL10086",
+      path: "README.md",
+    })
+    .catch((e: any) => {
+      console.error("Failed: ", e);
+      core.setFailed(e.message);
+    });
 
-  const {
-    data: { login },
-  } = await octokit.users.getAuthenticated();
-  console.log(`Hello, ${login}!, main`);
-}
+  // console.log("getReadme.data: ", getReadme.data);
+
+  const content = Buffer.from(getReadme.data.content, "base64").toString();
+  console.log("content: ", content);
+};
+
+main();

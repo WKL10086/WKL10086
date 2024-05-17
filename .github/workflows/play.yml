@@ -4,16 +4,14 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   play:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-      issues: write
-
-    # Only do anything if the issue title start with "wkldle-"
-    # if: startsWith(github.event.issue.title, 'wkldle-')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,14 +19,8 @@ jobs:
           ref: compiled
 
       - name: Run script
-        uses: actions/github-script@v2.0.0
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_CREATOR: ${{ github.event.issue.user.login }}
-        with:
-          script: |
-            const path = require('path')
-            const scriptPath = path.resolve('./bundle.js')
-            const wkldle = require(scriptPath)
-            console.log(scriptPath, wkldle)
-            console.log(await wkldle.default(github, context, core))
+        run: ./bundle.js

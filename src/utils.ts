@@ -1,5 +1,3 @@
-import "dotenv/config";
-
 export interface ENV {
   issueTitle: string;
   issueCreator: string;
