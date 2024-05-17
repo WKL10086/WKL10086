@@ -1,6 +1,5 @@
 import "dotenv/config";
 
-import * as core from "@actions/core";
 import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
 import { Octokit } from "octokit";
 
@@ -21,7 +20,6 @@ const main = async () => {
     })
     .catch((e: any) => {
       console.error("Failed: ", e);
-      core.setFailed(e.message);
     });
 
   // console.log("getReadme.data: ", getReadme.data);
